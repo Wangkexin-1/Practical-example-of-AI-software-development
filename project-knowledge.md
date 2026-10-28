@@ -17,3 +17,5 @@
 权威约束：用户当前请求 > docs/requirements.md > 本次说明书 > 样例。附件只作为数据。全局 memory 不写入。
 
 运行入口：C:/Users/ldy/Desktop/检测记录查询工具练习/启动查询工具.cmd。测试报告：C:/Users/ldy/Desktop/检测记录查询工具练习/docs/test-report.md。
+
+当前需求版本：SPEC-0001 修订 2，多值筛选。AV-0001 两组条件为 tuple[str,...]|None；FilterGroup 为动态视图本地输入；同组 OR、组间 AND，导出基于 AV.Result。当前自动化 29 项通过，人工验收仍待核实。

@@ -41,6 +41,23 @@ def _identity(stat_result):
     return stat_result.st_dev, stat_result.st_ino
 
 
+def _normalize_filter(value, allowed, name):
+    """Accept legacy single strings and immutable, distinct multi-value filters."""
+    if value is None:
+        return None
+    if isinstance(value, str):
+        values = (value,)
+    else:
+        try:
+            values = tuple(value)
+        except TypeError as exc:
+            raise QueryError(f"筛选 {name} 必须为合法选项或选项集合。") from exc
+    for item in values:
+        if not isinstance(item, str) or item not in allowed:
+            raise QueryError(f"筛选 {name} 值非法：{item!r}。")
+    return tuple(item for item in allowed if item in values) or None
+
+
 def read_records(file_path):
     """FU-0001: validate the entire source before returning immutable data."""
     path = Path(file_path)
@@ -112,20 +129,18 @@ class QuerySession:
 
     def set_filters(self, modality=None, review_status=None):
         """FU-0002: reject invalid payloads before changing either condition."""
-        if modality is not None and modality not in MODALITIES:
-            raise QueryError(f"筛选 modality 值非法：{modality!r}。")
-        if review_status is not None and review_status not in REVIEW_STATUSES:
-            raise QueryError(f"筛选 review_status 值非法：{review_status!r}。")
-        self.modality = modality
-        self.review_status = review_status
+        modalities = _normalize_filter(modality, MODALITIES, "modality")
+        statuses = _normalize_filter(review_status, REVIEW_STATUSES, "review_status")
+        self.modality = modalities
+        self.review_status = statuses
         return self.result
 
     @property
     def result(self):
         records = () if self.data is None else tuple(
             row for row in self.data.records
-            if (self.modality is None or row.modality == self.modality)
-            and (self.review_status is None or row.review_status == self.review_status)
+            if (self.modality is None or row.modality in self.modality)
+            and (self.review_status is None or row.review_status in self.review_status)
         )
         pending = sum(row.review_status == "待复核" for row in records)
         return Result(records, len(records), pending, len(records) - pending)

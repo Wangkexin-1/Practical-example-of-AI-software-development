@@ -1,6 +1,7 @@
 import csv
 import hashlib
 import io
+import itertools
 import json
 import os
 from pathlib import Path
@@ -119,7 +120,63 @@ class CoreTests(unittest.TestCase):
                 with self.assertRaises(QueryError):
                     self.session.set_filters(modality,status)
                 self.assertEqual(self.session.result, expected)
-                self.assertEqual((self.session.modality,self.session.review_status), ("U","待复核"))
+                self.assertEqual((self.session.modality,self.session.review_status), (("U",),("待复核",)))
+
+    def test_all_256_multi_filter_subsets(self):
+        self.session.load(SAMPLES / "valid/all_modalities.csv")
+        groups = {
+            "U": {"S001","S002","S003","S004"},
+            "V": {"S005","S006","S007"},
+            "E": {"S008","S009","S010"},
+            "R": {"S011","S012"},
+            "C1": {"S013","S014"},
+            "C2": {"S015","S016","S017","S018"},
+        }
+        pending = {"S001","S002","S003","S005","S008","S009","S013","S014","S015"}
+        all_ids = set.union(*groups.values())
+        statuses = {"待复核": pending, "已复核": all_ids - pending}
+        modality_sets = [subset for n in range(7) for subset in itertools.combinations(groups,n)]
+        status_sets = [subset for n in range(3) for subset in itertools.combinations(statuses,n)]
+        checked = 0
+        for modalities, reviews in itertools.product(modality_sets,status_sets):
+            with self.subTest(modalities=modalities,reviews=reviews):
+                expected_modality_ids = set.union(*(groups[m] for m in modalities)) if modalities else all_ids
+                expected_status_ids = set.union(*(statuses[s] for s in reviews)) if reviews else all_ids
+                expected = expected_modality_ids & expected_status_ids
+                result = self.session.set_filters(modalities,reviews)
+                self.assertEqual([row.record_id for row in result.records], sorted(expected))
+                self.assertEqual((result.total,result.pending,result.reviewed), (len(expected),len(expected & pending),len(expected - pending)))
+                checked += 1
+        self.assertEqual(checked,256)
+
+    def test_multi_filters_normalize_and_invalid_payload_is_atomic(self):
+        self.session.load(SAMPLES / "valid/all_modalities.csv")
+        expected = self.session.set_filters(["V","U","U"],["已复核","待复核","已复核"])
+        self.assertEqual(self.session.modality,("U","V"))
+        self.assertEqual(self.session.review_status,("待复核","已复核"))
+        self.assertEqual(expected.total,7)
+        for modality, status in ((["U","X"],None), (["E"],["待复核","非法"]), (42,None), (["U",["V"]],None)):
+            with self.subTest(modality=modality,status=status):
+                with self.assertRaises(QueryError):
+                    self.session.set_filters(modality,status)
+                self.assertEqual(self.session.result,expected)
+                self.assertEqual((self.session.modality,self.session.review_status),(("U","V"),("待复核","已复核")))
+        self.assertEqual(self.session.set_filters([],[]).total,18)
+        self.assertIsNone(self.session.modality)
+        self.assertIsNone(self.session.review_status)
+
+    def test_multi_filter_export_matches_selection_and_preserves_source(self):
+        source = SAMPLES / "valid/all_modalities.csv"
+        before = source.read_bytes()
+        self.session.load(source)
+        self.session.set_filters(("U","V"),("待复核",))
+        output = self.directory / "multi.csv"
+        self.assertEqual(self.session.export(output),4)
+        other = QuerySession()
+        other.load(output)
+        self.assertEqual([row.record_id for row in other.result.records],["S001","S002","S003","S005"])
+        self.assertEqual((other.result.total,other.result.pending,other.result.reviewed),(4,4,0))
+        self.assertEqual(source.read_bytes(),before)
 
     def test_order_duplicates_whitespace_and_quoted_newline_are_preserved(self):
         source = self.write_input('review_status,note,modality,record_id\r\n待复核,x,U,Z\r\n已复核,y,E,"ID,one"\r\n待复核,z,U,Z\r\n已复核,q,C2,"ID\r\ntwo"\r\n待复核,w,U, padded \r\n')
