@@ -1,0 +1,7 @@
+﻿record_id,modality,review_status
+R001,U,待复核
+R002,V,已复核
+R003,R,待复核
+R004,U,已复核
+R005,C1,待复核
+R006,C2,已复核

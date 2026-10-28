@@ -1,0 +1,43 @@
+{
+  "version": "0.1.0-practice.1",
+  "timestamp": "2026-10-28T11:14:01.785999+08:00",
+  "product_baseline_commit": "4c512c6614d7ccf507beaa5a21ce995615a65605",
+  "status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "-m",
+        "compileall",
+        "-q",
+        "main.py",
+        "record_query",
+        "scripts"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "scripts/check_environment.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "scripts/verify_samples.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "scope": "release candidate; business/widget tests and sample integrity; no human acceptance"
+}

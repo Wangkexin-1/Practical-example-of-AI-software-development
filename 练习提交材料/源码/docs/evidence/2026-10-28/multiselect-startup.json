@@ -1,0 +1,14 @@
+{
+  "revision": 2,
+  "status": "PASS",
+  "check": "Updated .cmd launched; new visible native window found",
+  "launcher_pid": 28720,
+  "application_pid": 13816,
+  "hwnd": 855638,
+  "expected_sample_counts": [
+    6,
+    3,
+    3
+  ],
+  "human_multiselect_acceptance": "NOT_RUN"
+}

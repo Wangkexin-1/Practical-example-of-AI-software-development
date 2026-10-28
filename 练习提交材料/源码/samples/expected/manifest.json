@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-28",
+  "status": "FIXTURES_ONLY",
+  "source_sha256": "7a2223fc7a7f71172cab0afbfb07f0f988a92f9d6e998df060fa458690825fa3",
+  "fixtures": [
+    {
+      "path": "invalid/empty_file.csv",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "issue": "missing_header",
+      "expected": "reject",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "invalid/empty_modality.csv",
+      "sha256": "638e87967ff8b64fa98bc3381f1e1da6196ea4c32f9a2d8e893ce5ff8556e913",
+      "bytes": 53,
+      "issue": "enum",
+      "column": "modality",
+      "line": 2,
+      "expected": "reject",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "invalid/empty_review_status.csv",
+      "sha256": "51588c3a2262e63111e2207d4b514508eda6e5d4686dc2268b2def8486dd25c2",
+      "bytes": 45,
+      "issue": "enum",
+      "column": "review_status",
+      "line": 2,
+      "expected": "reject",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "invalid/invalid_modality.csv",
+      "sha256": "a557ab8173ec3d6de220b37168f8f63498b304155e4c5edb1288136d7ce7d5f5",
+      "bytes": 74,
+      "issue": "enum",
+      "column": "modality",
+      "line": 3,
+      "expected": "reject",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "invalid/invalid_review_status.csv",
+      "sha256": "ed101c20aef3c6359283ed63960ace0df297664937240038370ba37e1ec20748",
+      "bytes": 74,
+      "issue": "enum",
+      "column": "review_status",
+      "line": 3,
+      "expected": "reject",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "invalid/malformed_csv.csv",
+      "sha256": "142e8cd5128ea89ca9cfcf535e66d61f62ff74549823890bdc696b63098c416f",
+      "bytes": 55,
+      "issue": "csv_syntax",
+      "expected": "reject",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "invalid/missing_modality.csv",
+      "sha256": "13fe397fb84bfc866fed416b9890b7ac08b11df2b5f1c5189c1455ee7ae03b48",
+      "bytes": 43,
+      "issue": "missing_column",
+      "column": "modality",
+      "expected": "reject",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "invalid/missing_record_id.csv",
+      "sha256": "02c4f3bfb0c84e392050ad1266ba0936772e260d75e2337942edced8af519543",
+      "bytes": 37,
+      "issue": "missing_column",
+      "column": "record_id",
+      "expected": "reject",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "invalid/missing_review_status.csv",
+      "sha256": "f033f7b2534d2b6d6006ee69c8f30e284bb929eb07ffa80942c0b4fe2b33b631",
+      "bytes": 30,
+      "issue": "missing_column",
+      "column": "review_status",
+      "expected": "reject",
+      "encoding": "utf-8"
+    },
+    {
+      "path": "invalid/not_utf8.csv",
+      "sha256": "63efd9013f185a0b65aa1de0829c9783430d700fdce954617fd89d6b9f09a4bb",
+      "bytes": 51,
+      "issue": "encoding",
+      "expected": "reject",
+      "encoding": "gbk"
+    },
+    {
+      "path": "original/影像资料复核状态表.csv",
+      "sha256": "7a2223fc7a7f71172cab0afbfb07f0f988a92f9d6e998df060fa458690825fa3",
+      "bytes": 147,
+      "records": 6,
+      "pending": 3,
+      "reviewed": 3,
+      "encoding": "utf-8-sig",
+      "expected": "accept"
+    },
+    {
+      "path": "valid/all_modalities.csv",
+      "sha256": "b5e0217e23e54d041fdac8c78962e1bd3c89e5e945a5e2d48e4972eaab7005b4",
+      "bytes": 364,
+      "records": 18,
+      "pending": 9,
+      "reviewed": 9,
+      "encoding": "utf-8",
+      "expected": "accept"
+    },
+    {
+      "path": "valid/all_modalities_bom.csv",
+      "sha256": "cf5ececde85547ee21c1d3d4e9663381ea3a5984d6f82f35c313535ca13e0012",
+      "bytes": 367,
+      "records": 18,
+      "pending": 9,
+      "reviewed": 9,
+      "encoding": "utf-8-sig",
+      "expected": "accept"
+    },
+    {
+      "path": "valid/extra_columns.csv",
+      "sha256": "cbfe6da2e937b9884837a33959e59f8fba081978804dba8be4cc509563152d72",
+      "bytes": 118,
+      "records": 2,
+      "pending": 1,
+      "reviewed": 1,
+      "encoding": "utf-8",
+      "expected": "accept"
+    },
+    {
+      "path": "valid/header_only.csv",
+      "sha256": "3d6dce7e7f3d80bb31be8b0d58238ca1a6bb9d3d9254a2acd9f5882532b4f566",
+      "bytes": 34,
+      "records": 0,
+      "pending": 0,
+      "reviewed": 0,
+      "encoding": "utf-8",
+      "expected": "accept"
+    },
+    {
+      "path": "valid/quoted_fields.csv",
+      "sha256": "9512a1bad26397c2375f4bb94a0d3148f95709027bfdb3b38dce8bb06abea99e",
+      "bytes": 103,
+      "records": 3,
+      "pending": 2,
+      "reviewed": 1,
+      "encoding": "utf-8",
+      "expected": "accept"
+    },
+    {
+      "path": "valid/single_record.csv",
+      "sha256": "bb57ecc776ae2f974529d99afd36f7b9ecd125b26af4703fe6e4db72a94340a6",
+      "bytes": 54,
+      "records": 1,
+      "pending": 1,
+      "reviewed": 0,
+      "encoding": "utf-8",
+      "expected": "accept"
+    }
+  ]
+}

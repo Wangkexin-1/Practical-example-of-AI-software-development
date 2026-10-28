@@ -1,0 +1,4 @@
+# Runtime: Python 3.11+ with Tkinter/Tk.
+# csv, pathlib, dataclasses, tkinter, unittest are standard-library modules.
+# No third-party runtime dependencies are required by the planned application.
+# Tkinter is supplied by the Python installer, not by pip.

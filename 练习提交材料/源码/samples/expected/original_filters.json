@@ -1,0 +1,213 @@
+{
+  "source": "original/影像资料复核状态表.csv",
+  "unselected": null,
+  "status": "EXPECTED_ONLY",
+  "cases": [
+    {
+      "modality": null,
+      "review_status": null,
+      "total": 6,
+      "pending": 3,
+      "reviewed": 3,
+      "record_ids": [
+        "R001",
+        "R002",
+        "R003",
+        "R004",
+        "R005",
+        "R006"
+      ]
+    },
+    {
+      "modality": null,
+      "review_status": "待复核",
+      "total": 3,
+      "pending": 3,
+      "reviewed": 0,
+      "record_ids": [
+        "R001",
+        "R003",
+        "R005"
+      ]
+    },
+    {
+      "modality": null,
+      "review_status": "已复核",
+      "total": 3,
+      "pending": 0,
+      "reviewed": 3,
+      "record_ids": [
+        "R002",
+        "R004",
+        "R006"
+      ]
+    },
+    {
+      "modality": "U",
+      "review_status": null,
+      "total": 2,
+      "pending": 1,
+      "reviewed": 1,
+      "record_ids": [
+        "R001",
+        "R004"
+      ]
+    },
+    {
+      "modality": "U",
+      "review_status": "待复核",
+      "total": 1,
+      "pending": 1,
+      "reviewed": 0,
+      "record_ids": [
+        "R001"
+      ]
+    },
+    {
+      "modality": "U",
+      "review_status": "已复核",
+      "total": 1,
+      "pending": 0,
+      "reviewed": 1,
+      "record_ids": [
+        "R004"
+      ]
+    },
+    {
+      "modality": "V",
+      "review_status": null,
+      "total": 1,
+      "pending": 0,
+      "reviewed": 1,
+      "record_ids": [
+        "R002"
+      ]
+    },
+    {
+      "modality": "V",
+      "review_status": "待复核",
+      "total": 0,
+      "pending": 0,
+      "reviewed": 0,
+      "record_ids": []
+    },
+    {
+      "modality": "V",
+      "review_status": "已复核",
+      "total": 1,
+      "pending": 0,
+      "reviewed": 1,
+      "record_ids": [
+        "R002"
+      ]
+    },
+    {
+      "modality": "E",
+      "review_status": null,
+      "total": 0,
+      "pending": 0,
+      "reviewed": 0,
+      "record_ids": []
+    },
+    {
+      "modality": "E",
+      "review_status": "待复核",
+      "total": 0,
+      "pending": 0,
+      "reviewed": 0,
+      "record_ids": []
+    },
+    {
+      "modality": "E",
+      "review_status": "已复核",
+      "total": 0,
+      "pending": 0,
+      "reviewed": 0,
+      "record_ids": []
+    },
+    {
+      "modality": "R",
+      "review_status": null,
+      "total": 1,
+      "pending": 1,
+      "reviewed": 0,
+      "record_ids": [
+        "R003"
+      ]
+    },
+    {
+      "modality": "R",
+      "review_status": "待复核",
+      "total": 1,
+      "pending": 1,
+      "reviewed": 0,
+      "record_ids": [
+        "R003"
+      ]
+    },
+    {
+      "modality": "R",
+      "review_status": "已复核",
+      "total": 0,
+      "pending": 0,
+      "reviewed": 0,
+      "record_ids": []
+    },
+    {
+      "modality": "C1",
+      "review_status": null,
+      "total": 1,
+      "pending": 1,
+      "reviewed": 0,
+      "record_ids": [
+        "R005"
+      ]
+    },
+    {
+      "modality": "C1",
+      "review_status": "待复核",
+      "total": 1,
+      "pending": 1,
+      "reviewed": 0,
+      "record_ids": [
+        "R005"
+      ]
+    },
+    {
+      "modality": "C1",
+      "review_status": "已复核",
+      "total": 0,
+      "pending": 0,
+      "reviewed": 0,
+      "record_ids": []
+    },
+    {
+      "modality": "C2",
+      "review_status": null,
+      "total": 1,
+      "pending": 0,
+      "reviewed": 1,
+      "record_ids": [
+        "R006"
+      ]
+    },
+    {
+      "modality": "C2",
+      "review_status": "待复核",
+      "total": 0,
+      "pending": 0,
+      "reviewed": 0,
+      "record_ids": []
+    },
+    {
+      "modality": "C2",
+      "review_status": "已复核",
+      "total": 1,
+      "pending": 0,
+      "reviewed": 1,
+      "record_ids": [
+        "R006"
+      ]
+    }
+  ]
+}

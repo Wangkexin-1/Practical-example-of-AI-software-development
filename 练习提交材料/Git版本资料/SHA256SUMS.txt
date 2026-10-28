@@ -1,0 +1,3 @@
+c540efafb24610d3e815bfe088edf206b7f182ee85db5ebf09a361030506b60d  record-query-v0.1.0-practice.1-source.zip
+b16a88053c410bd08cd9e8b8cba241382c028ee2eb462470e550f533da0cef57  record-query-v0.1.0-practice.1.bundle
+86a5aaf7b5a006d14090ed174b69fb25640e47210bdcba06f9cdaa5293b64f98  release-manifest.json

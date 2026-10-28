@@ -1,0 +1,15 @@
+.venv/
+.setup/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+logs/
+.coverage
+htmlcov/
+build/
+dist/
+deliveries/
+exports/*
+!exports/.gitkeep
+Thumbs.db
+Desktop.ini

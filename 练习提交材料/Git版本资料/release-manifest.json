@@ -1,0 +1,25 @@
+{
+  "version": "0.1.0-practice.1",
+  "tag": "v0.1.0-practice.1",
+  "commit": "37db4561d623e098aef0ffaf1bca93955dd48eca",
+  "timestamp": "2026-10-28T11:22:30.051965+08:00",
+  "files": [
+    {
+      "name": "record-query-v0.1.0-practice.1-source.zip",
+      "bytes": 295162,
+      "sha256": "c540efafb24610d3e815bfe088edf206b7f182ee85db5ebf09a361030506b60d"
+    },
+    {
+      "name": "record-query-v0.1.0-practice.1.bundle",
+      "bytes": 284283,
+      "sha256": "b16a88053c410bd08cd9e8b8cba241382c028ee2eb462470e550f533da0cef57"
+    }
+  ],
+  "runtime": "Windows Python 3.11+ with Tkinter; virtual environment and interpreter not bundled",
+  "entry": "启动查询工具.cmd",
+  "demo_entry": "演示交付结果.cmd",
+  "prompts": "docs/prompts/key-prompts.md",
+  "test_scope": "29 candidate tests passed before user stop instruction; no further testing after instruction",
+  "user_feedback": "User viewed running results, considered them correct and requested immediate release without further tests",
+  "remote": "none; local delivery only"
+}

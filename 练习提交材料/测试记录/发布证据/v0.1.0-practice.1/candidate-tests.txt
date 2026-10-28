@@ -1,0 +1,60 @@
+Command: C:\Users\ldy\Desktop\检测记录查询工具练习\.venv\Scripts\python.exe -m compileall -q main.py record_query scripts
+Exit code: 0
+
+
+Command: C:\Users\ldy\Desktop\检测记录查询工具练习\.venv\Scripts\python.exe scripts/check_environment.py
+Exit code: 0
+Python: 3.14.7
+Executable: C:\Users\ldy\Desktop\检测记录查询工具练习\.venv\Scripts\python.exe
+csv: OK
+pathlib: OK
+dataclasses: OK
+unittest: OK
+tkinter: OK
+Tk: 9.0
+git version 2.55.0.windows.3
+Environment check passed. Application behavior: NOT_RUN.
+
+
+Command: C:\Users\ldy\Desktop\检测记录查询工具练习\.venv\Scripts\python.exe scripts/verify_samples.py
+Exit code: 0
+Fixture checks passed: 17 CSV files; 42 expected filter combinations.
+This checks preparation data only. Application acceptance: NOT_RUN.
+
+
+Command: C:\Users\ldy\Desktop\检测记录查询工具练习\.venv\Scripts\python.exe -m unittest discover -s tests -v
+Exit code: 0
+test_all_256_multi_filter_subsets (test_core.CoreTests.test_all_256_multi_filter_subsets) ... ok
+test_all_invalid_fixtures_and_missing_file (test_core.CoreTests.test_all_invalid_fixtures_and_missing_file) ... ok
+test_all_valid_fixtures_and_exported_values (test_core.CoreTests.test_all_valid_fixtures_and_exported_values) ... ok
+test_blank_lines_are_ignored (test_core.CoreTests.test_blank_lines_are_ignored) ... ok
+test_duplicate_headers_bad_row_width_and_non_exact_enum_rejected (test_core.CoreTests.test_duplicate_headers_bad_row_width_and_non_exact_enum_rejected) ... ok
+test_existing_output_is_unchanged (test_core.CoreTests.test_existing_output_is_unchanged) ... ok
+test_export_creation_race_and_bad_directory (test_core.CoreTests.test_export_creation_race_and_bad_directory) ... ok
+test_failed_import_clears_previous_session_and_filters (test_core.CoreTests.test_failed_import_clears_previous_session_and_filters) ... ok
+test_fixed_filter_answers_and_export_roundtrips (test_core.CoreTests.test_fixed_filter_answers_and_export_roundtrips) ... ok
+test_hard_link_to_source_is_protected (test_core.CoreTests.test_hard_link_to_source_is_protected) ... ok
+test_input_and_equivalent_paths_cannot_be_overwritten (test_core.CoreTests.test_input_and_equivalent_paths_cannot_be_overwritten) ... ok
+test_invalid_filter_does_not_partially_change_conditions (test_core.CoreTests.test_invalid_filter_does_not_partially_change_conditions) ... ok
+test_multi_filter_export_matches_selection_and_preserves_source (test_core.CoreTests.test_multi_filter_export_matches_selection_and_preserves_source) ... ok
+test_multi_filters_normalize_and_invalid_payload_is_atomic (test_core.CoreTests.test_multi_filters_normalize_and_invalid_payload_is_atomic) ... ok
+test_new_import_resets_filters (test_core.CoreTests.test_new_import_resets_filters) ... ok
+test_order_duplicates_whitespace_and_quoted_newline_are_preserved (test_core.CoreTests.test_order_duplicates_whitespace_and_quoted_newline_are_preserved) ... ok
+test_original_sample_hashes_match_manifest_after_tests (test_core.CoreTests.test_original_sample_hashes_match_manifest_after_tests) ... ok
+test_symbolic_link_to_source_is_protected (test_core.CoreTests.test_symbolic_link_to_source_is_protected) ... ok
+test_write_failure_removes_partial_output (test_core.CoreTests.test_write_failure_removes_partial_output) ... ok
+test_all_distinct_choices_limit_and_removal_enable_add_again (test_ui.UITests.test_all_distinct_choices_limit_and_removal_enable_add_again) ... ok
+test_blank_additions_do_not_select_implicitly_and_reset_clears_rows (test_ui.UITests.test_blank_additions_do_not_select_implicitly_and_reset_clears_rows) ... ok
+test_dynamic_multi_groups_filter_statistics_and_export (test_ui.UITests.test_dynamic_multi_groups_filter_statistics_and_export) ... ok
+test_dynamic_options_reclaimed_after_change_and_remove (test_ui.UITests.test_dynamic_options_reclaimed_after_change_and_remove) ... ok
+test_empty_then_import_filter_reset_and_export (test_ui.UITests.test_empty_then_import_filter_reset_and_export) ... ok
+test_empty_valid_input_enables_export_and_export_error_keeps_state (test_ui.UITests.test_empty_valid_input_enables_export_and_export_error_keeps_state) ... ok
+test_failed_import_clears_table_and_disables_export (test_ui.UITests.test_failed_import_clears_table_and_disables_export) ... ok
+test_import_and_export_cancel_leave_query_unchanged (test_ui.UITests.test_import_and_export_cancel_leave_query_unchanged) ... ok
+test_maximum_filter_rows_keep_table_and_export_visible (test_ui.UITests.test_maximum_filter_rows_keep_table_and_export_visible) ... ok
+test_reimport_and_failure_reset_multi_rows_cancel_preserves_drafts (test_ui.UITests.test_reimport_and_failure_reset_multi_rows_cancel_preserves_drafts) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 1.341s
+
+OK

@@ -1,0 +1,4 @@
+record_id,modality,review_status
+"ID,001",U,待复核
+"ID""002",C1,已复核
+编号003,E,待复核

@@ -1,0 +1,8 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.cmd text eol=crlf
+# Keep fixture bytes intact, including BOM, CRLF and deliberately invalid input.
+samples/**/*.csv -text
