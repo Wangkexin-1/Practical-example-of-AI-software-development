@@ -5,7 +5,7 @@
 - Windows 桌面环境。
 - Python 3.11 或更高版本，安装时包含 Tcl/Tk 与 Tkinter。
 - Git 用于本地版本管理。
-- 计划使用 Python 标准库，无第三方运行依赖，无需联网下载业务库。
+- 使用 Python 标准库，无第三方运行依赖，无需联网下载业务库。
 
 本轮准备机器实测：Python 3.14.7、Tk 9.0、Git 2.55.0.windows.3。其他版本尚未验证。
 
@@ -24,18 +24,46 @@ python -m venv .venv
 
 Tkinter 不是 pip 包。导入失败时，需要为所使用的 Python 安装补充 Tcl/Tk 组件。
 
-## 当前可执行内容
+## 启动查询工具
+
+**推荐：双击项目根目录的 `启动查询工具.cmd`。** 入口先使用项目 `.venv`，没有虚拟环境时尝试系统 Python 或 py 启动器；失败时保留命令窗口显示原因。
+
+在任意工作目录也可以通过入口完整路径启动，入口自动切换到项目目录。
+
+在项目目录使用 PowerShell 启动：
+
+```powershell
+.\.venv\Scripts\python.exe main.py
+```
+
+启动时直接打开原样例：
+
+```powershell
+.\.venv\Scripts\python.exe main.py "samples\original\影像资料复核状态表.csv"
+```
+
+关闭主窗口即退出应用。正常启动不需要联网、管理员权限或安装第三方包。未预期错误记录到项目 `logs/application.log`。
+
+## 检查命令
 
 环境检查脚本报告 Python、Tk 和 Git 版本，只用于环境准备，不验证应用业务或窗口交互。样例检查脚本验证 17 份 CSV 的清单、字节散列、合法/错误数据结构，以及两份答案清单中共 42 种筛选预期；不导入或调用应用代码。
 
-主程序尚未实现，当前没有应用启动命令。后续实现时会在此补充真实入口及测试命令。
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
 
-## 实现后的操作流程
+这是专门的功能测试，临时输出写入自动清理的临时目录，不覆盖项目输入。测试需要可用 Tk 桌面环境；符号链接能力不可用时该项显示 skipped，不能据此宣称通过。本次机器 20 项均通过，无 skipped。
+
+## 操作流程
 
 1. 打开工具并选择 CSV，先用 `samples/original/影像资料复核状态表.csv`。
 2. 按 modality 和 review_status 筛选，查看列表和三项统计。
 3. 选择新文件路径导出，例如 `exports/待复核.csv`。
 4. 使用 `samples/README.md` 与 `samples/expected/` 对照后续验收结果。
+
+原样例预期：全部为 6/3/3；modality=U 为 2/1/1；再加待复核为 1/1/0，记录为 R001。modality=E 为零条，仍可导出表头。“全部”不是业务枚举，只代表取消该项限制。
+
+导出要求选择新文件名；现有输出也不会覆盖。文件选择或保存对话框点取消不改变查询。导入实际失败则清空旧数据并禁用导出，重新导入合法文件即可继续。
 
 ## Git
 

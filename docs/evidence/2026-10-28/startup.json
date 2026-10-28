@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "check": "Actual .cmd launch from Python subprocess; visible native main window found",
+  "launcher_pid": 24484,
+  "application_pid": 25636,
+  "hwnd": 396330,
+  "source": "C:\\Users\\ldy\\Desktop\\检测记录查询工具练习\\samples\\original\\影像资料复核状态表.csv",
+  "title": "检测记录查询工具",
+  "human_acceptance": "NOT_RUN",
+  "native_full_workflow": "NOT_RUN - external input automation attempt did not complete"
+}
