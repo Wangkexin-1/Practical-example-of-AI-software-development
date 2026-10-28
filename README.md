@@ -1,5 +1,7 @@
 # 检测记录查询工具练习
 
+练习交付版本：**0.1.0-practice.1**；Git 标签：`v0.1.0-practice.1`。变更见 [CHANGELOG.md](CHANGELOG.md)，交付清单见 [版本说明](docs/releases/v0.1.0-practice.1.md)，关键提示词见 [提示词归档](docs/prompts/key-prompts.md)。
+
 已实现 UTF-8 CSV 导入校验、筛选统计和结果导出，无第三方运行依赖。
 
 ## 运行入口
@@ -17,6 +19,12 @@
 ```powershell
 .\.venv\Scripts\python.exe main.py "samples\original\影像资料复核状态表.csv"
 ```
+
+## 交付演示
+
+双击 **`演示交付结果.cmd`**，直接打开含 18 条记录的主样例。先选 modality=U，再“增加条件”选 V，显示 7/4/3；review_status 选待复核，显示 4/4/0；导出新 CSV 应为 S001、S002、S003、S005。复核状态再增加已复核，恢复 7/4/3。点重置恢复 18/9/9。
+
+现场演示图和输出保存在 `docs/releases/evidence/v0.1.0-practice.1/`。用户已查看运行结果并反馈正确；按用户要求停止继续测试。源码 ZIP 不带 `.venv`，解压后按运行说明准备环境。
 
 ## 使用
 
@@ -49,6 +57,9 @@
 - `requirements.txt`：依赖说明，目前没有第三方运行依赖。
 - `exports/`：预留导出目录，生成的 CSV 不纳入 Git。
 - `dev-log/`：每日操作记录。
+- `VERSION`、`CHANGELOG.md`、`docs/prompts/`、`docs/releases/`：版本、变更、关键提示词和发布记录。
+- `演示交付结果.cmd`：直接打开主样例的现场演示入口。
+- `deliveries/`：由 Git 标签生成的源码 ZIP、Git bundle、清单与校验文件，不纳入 Git。
 
 ## 可重复检查
 

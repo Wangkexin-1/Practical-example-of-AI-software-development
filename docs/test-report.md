@@ -62,3 +62,7 @@
 截图与原生进程证据：docs/evidence/2026-10-28/multiselect-startup.json、multiselect-startup.png。截图实际显示两组增加按钮和样例 6/3/3，不用截图代替业务测试。
 
 原生人工多选全流程、跨机器/多显示器/极小分辨率和生产规模性能未执行，仍为 NOT_RUN。核心 AV/FU 已按修订证据验证，UI 与整体验收仍保留待核实；原 20 项历史结论不冒充本次结果。
+
+## 0.1.0-practice.1 版本交付
+
+候选版本 29 项测试再次通过，证据见 docs/releases/evidence/v0.1.0-practice.1/candidate-tests.txt。用户查看运行结果后反馈正确，并要求不再测试，已停止继续测试并进入交付。发布验证范围及现场演示见 docs/releases/verification.md。未将未完成的自动演示算作通过。

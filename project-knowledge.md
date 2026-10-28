@@ -19,3 +19,5 @@
 运行入口：C:/Users/ldy/Desktop/检测记录查询工具练习/启动查询工具.cmd。测试报告：C:/Users/ldy/Desktop/检测记录查询工具练习/docs/test-report.md。
 
 当前需求版本：SPEC-0001 修订 2，多值筛选。AV-0001 两组条件为 tuple[str,...]|None；FilterGroup 为动态视图本地输入；同组 OR、组间 AND，导出基于 AV.Result。当前自动化 29 项通过，人工验收仍待核实。
+
+交付版本 0.1.0-practice.1（标签 v0.1.0-practice.1）。版本说明：C:/Users/ldy/Desktop/检测记录查询工具练习/docs/releases/v0.1.0-practice.1.md；关键提示词：C:/Users/ldy/Desktop/检测记录查询工具练习/docs/prompts/key-prompts.md；自动演示：C:/Users/ldy/Desktop/检测记录查询工具练习/演示交付结果.cmd。本次为发布与验证，没有修改产品数据契约或 AV/FU/UI 业务结构。

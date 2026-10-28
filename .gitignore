@@ -8,6 +8,7 @@ logs/
 htmlcov/
 build/
 dist/
+deliveries/
 exports/*
 !exports/.gitkeep
 Thumbs.db
